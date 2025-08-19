@@ -42,6 +42,7 @@ services:
     image: docker.io/library/registry:3
     ports:
       - '7001:7001'
+      - '5000:5000'
     volumes:
       - ./registry/data:/var/lib/registry:z
       - ./registry/htpasswd:/etc/docker/registry/htpasswd:z

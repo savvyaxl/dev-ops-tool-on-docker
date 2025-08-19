@@ -6,6 +6,7 @@ cat << EOF > /etc/firewalld/services/dev-ops-tool-on-docker.xml
   <port protocol="tcp" port="8080"/>
   <port protocol="tcp" port="4287"/>
   <port protocol="tcp" port="5200"/>
+  <port protocol="tcp" port="5000"/>
   <port protocol="tcp" port="7001"/>
 </service>
 EOF
