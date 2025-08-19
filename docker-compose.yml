@@ -7,7 +7,7 @@ services:
     ports:
       - '8080:8080'
     volumes:
-      - jenkins_home:/var/jenkins_home
+      - jenkins_home:/var/jenkins_home:z
   tomcat:
     container_name: Tomcat
     build:
@@ -16,7 +16,7 @@ services:
     ports:
       - '4287:4287'
     volumes:
-      - tomcat_logs:/usr/local/tomcat/logs/
+      - tomcat_logs:/usr/local/tomcat/logs:z
     env_file:
       - './tomcat/compose.env'
   ansible:
@@ -29,11 +29,11 @@ services:
     ports:
       - '5200:5200'
     volumes:
-      - ./ansible/data:/home/ansadmin
-      - ./ansible/ansible.cfg:/etc/ansible/ansible.cfg
+      - ./ansible/data:/home/ansadmin:z
+      - ./ansible/ansible.cfg:/etc/ansible/ansible.cfg:z
       #- /var/run/docker.sock:/var/run/docker.sock
-      - ./ansible/hosts:/etc/ansible/hosts
-      - ./ansible/tomcat:/tomcat
+      - ./ansible/hosts:/etc/ansible/hosts:z
+      - ./ansible/tomcat:/tomcat:z
     environment:
       - ANSIBLE_HOST_KEY_CHECKING=false
       - ANSIBLE_CONFIG=/etc/ansible/ansible.cfg
@@ -43,10 +43,10 @@ services:
     ports:
       - '7001:7001'
     volumes:
-      - ./registry/data:/var/lib/registry
-      - ./registry/htpasswd:/etc/docker/registry/htpasswd
-      - ./registry/certs:/certs
-      - ./registry/daemon.json:/etc/docker/daemon.json
+      - ./registry/data:/var/lib/registry:z
+      - ./registry/htpasswd:/etc/docker/registry/htpasswd:z
+      - ./registry/certs:/certs:z
+      - ./registry/daemon.json:/etc/docker/daemon.json:z
     environment:
       REGISTRY_AUTH: htpasswd
       REGISTRY_AUTH_HTPASSWD_PATH: /etc/docker/registry/htpasswd
