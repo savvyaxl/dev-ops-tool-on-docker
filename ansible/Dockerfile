@@ -1,11 +1,11 @@
-FROM python:slim
+FROM docker.io/library/python:slim
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install necessary packages
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-    software-properties-common \
+    #software-properties-common \
     openssh-client \
     sshpass \
     locales \

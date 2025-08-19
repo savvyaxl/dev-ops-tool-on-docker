@@ -1,7 +1,7 @@
 ###
 # Dockerfile for Unidata Tomcat.
 ###
-FROM tomcat:9.0-jdk11
+FROM docker.io/library/tomcat:9.0-jdk11
 
 MAINTAINER Unidata
 

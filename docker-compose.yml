@@ -31,7 +31,7 @@ services:
     volumes:
       - ./ansible/data:/home/ansadmin
       - ./ansible/ansible.cfg:/etc/ansible/ansible.cfg
-      - /var/run/docker.sock:/var/run/docker.sock
+      #- /var/run/docker.sock:/var/run/docker.sock
       - ./ansible/hosts:/etc/ansible/hosts
       - ./ansible/tomcat:/tomcat
     environment:
@@ -39,7 +39,7 @@ services:
       - ANSIBLE_CONFIG=/etc/ansible/ansible.cfg
   registry:
     container_name: Registry
-    image: registry:2
+    image: docker.io/library/registry:3
     ports:
       - '7001:7001'
     volumes:
