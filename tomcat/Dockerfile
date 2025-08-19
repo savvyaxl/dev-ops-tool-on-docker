@@ -6,7 +6,7 @@ FROM docker.io/library/tomcat:9.0-jdk11
 MAINTAINER Unidata
 
 # Install necessary packages
-RUN apt-get update && \
+RUN userdel ubuntu && useradd tomcat && apt-get update && \
     apt-get install -y --no-install-recommends  \
         gosu \
         zip \

@@ -1,0 +1,16 @@
+cat << EOF > /etc/firewalld/services/dev-ops-tool-on-docker.xml
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>dev-ops-tool-on-docker</short>
+  <description>dev-ops-tool-on-dockerserver</description>
+  <port protocol="tcp" port="8080"/>
+  <port protocol="tcp" port="4287"/>
+  <port protocol="tcp" port="5200"/>
+  <port protocol="tcp" port="7001"/>
+</service>
+EOF
+firewall-cmd --reload
+firewall-cmd --add-service dev-ops-tool-on-docker
+firewall-cmd --add-service dev-ops-tool-on-docker --permanent
+
+
